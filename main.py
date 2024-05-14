@@ -67,7 +67,7 @@ def query_item_by_parameters(name: Optional[str] = None,
              count is None or item.count == count,
              category is None or item.category is category,)
         )
-    
+
     # Log the query parameters
     print(f"Query Parameters: name={name}, price={price}, count={count},\
           category={category}")
@@ -109,7 +109,7 @@ def update(item_id: int,
             status_code=400,
             detail="No parameters provided for update."
         )
-    
+
     item = items[item_id]
     if name is not None:
         item.name = name
@@ -119,6 +119,7 @@ def update(item_id: int,
         item.count = count
 
     return {"updated": item}
+
 
 @app.delete("/items/{item_id}")
 def delete_item(item_id: int) -> Dict[str, Item]:
